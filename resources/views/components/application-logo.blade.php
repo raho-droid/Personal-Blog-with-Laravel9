@@ -1,0 +1,1 @@
+<img src="{{ asset('logo/cayLogo.jpg') }}" width="80px" height="80px">
