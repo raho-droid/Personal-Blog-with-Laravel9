@@ -10,11 +10,13 @@ use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('frontend.index');
-});
+}); */
 
 //Admin All Route
+Route::middleware(['auth'])->group(function () {
+
 Route::controller(AdminController::class)->group(function() {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
     Route::get('/admin/profile', 'Profile')->name('admin.profile');
@@ -23,11 +25,13 @@ Route::controller(AdminController::class)->group(function() {
     Route::get('/change/password', 'ChangePassword')->name('change.password');
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
 });
+});
 
  // Home Slide All Route 
  Route::controller(HomeSliderController::class)->group(function () {
     Route::get('/home/slide', 'HomeSlider')->name('home.slide');
     Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
+    Route::get('/', 'HomeMain')->name('home');
 });
 
  // About Page All Route 
@@ -52,6 +56,7 @@ Route::controller(AdminController::class)->group(function() {
     Route::post('/update/portfolio', 'UpdatePortfolio')->name('update.portfolio');
     Route::get('/delete/portfolio/{id}', 'DeletePortfolio')->name('delete.portfolio');
     Route::get('/portfolio/details/{id}', 'PortfolioDetails')->name('portfolio.details');
+    Route::get('/portfolio', 'HomePortfolio')->name('home.portfolio');
 });
 
  // Blog Category All Routes 

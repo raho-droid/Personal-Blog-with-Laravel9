@@ -1,6 +1,11 @@
 @extends('frontend.main_master')
 @section('main')
 
+
+@section('title')
+Contact | Rahman's Website
+@endsection
+
  <main>
 
             <!-- breadcrumb-area -->
