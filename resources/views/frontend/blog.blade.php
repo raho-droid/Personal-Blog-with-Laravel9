@@ -185,6 +185,7 @@ Blog | EasyLearning Website
                         </div>
                     </div>
                 </div>
+                
             </section>
             <!-- contact-area-end -->
 
